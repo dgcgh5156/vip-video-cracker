@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP视频破解脚本安装器</title>
+    <!-- 添加MIME类型声明 -->
+    <meta http-equiv="Content-Type" content="text/javascript; charset=UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ff8a00, #e52e71, #00b09b);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(45deg, #ff8a00, #e52e71);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #e0e0ff;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            opacity: 0.1;
+            transform: rotate(15deg);
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background: rgba(20, 20, 40, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+        
+        .card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ff416c, #ff4b2b);
+        }
+        
+        .card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #ffcc00;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card h2 i {
+            margin-right: 12px;
+            font-size: 1.5em;
+        }
+        
+        .feature-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .feature-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-list li i {
+            margin-right: 10px;
+            color: #4caf50;
+            font-size: 1.2em;
+            min-width: 24px;
+            text-align: center;
+        }
+        
+        .supported-sites {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .site {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 12px;
+            text-align: center;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .site:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+        
+        .site i {
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+        
+        .install-section {
+            text-align: center;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .install-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 Q50,10 100,0 L100,100 Q50,90 0,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+            z-index: 1;
+        }
+        
+        .install-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 600;
+            padding: 18px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin: 20px 0;
+            box-shadow: 0 8px 25px rgba(255, 75, 43, 0.4);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+        
+        .install-btn:after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 20px;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(25deg);
+            transition: all 0.8s;
+        }
+        
+        .install-btn:hover:after {
+            left: 120%;
+        }
+        
+        .install-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(255, 75, 43, 0.6);
+        }
+        
+        .instructions {
+            background: rgba(20, 30, 50, 0.8);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            position: relative;
+        }
+        
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        
+        .step {
+            width: 22%;
+            min-width: 200px;
+            text-align: center;
+            margin: 15px 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            background: linear-gradient(45deg, #2193b0, #6dd5ed);
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(33, 147, 176, 0.4);
+        }
+        
+        .note {
+            background: rgba(200, 50, 50, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            border-left: 4px solid #ff5252;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .note h3 {
+            color: #ff5252;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .note h3 i {
+            margin-right: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0 20px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* 新增样式 - 手动安装说明 */
+        .manual-install {
+            background: rgba(40, 40, 80, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .manual-install ol {
+            padding-left: 20px;
+            margin-top: 15px;
+        }
+        
+        .manual-install li {
+            margin-bottom: 10px;
+        }
+        
+        .fake-btn {
+            background: #f44336;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: default;
+            display: inline-block;
+            margin: 0 5px;
+        }
+        
+        .browser-extensions {
+            margin: 25px 0;
+            text-align: center;
+        }
+        
+        .extensions-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .extensions-list a {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.3s;
+        }
+        
+        .extensions-list a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .extensions-list img {
+            margin-right: 10px;
+            width: 36px;
+            height: 36px;
+        }
+        
+        .install-options {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .cdn-option {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            width: 200px;
+        }
+        
+        .cdn-option h4 {
+            margin-bottom: 10px;
+            color: #ffcc00;
+        }
+        
+        .cdn-btn {
+            display: inline-block;
+            background: #2196F3;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+        
+        .cdn-btn:hover {
+            background: #1e88e5;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .steps {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .step {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .install-section {
+                padding: 30px 15px;
+            }
+            
+            .extensions-list {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+        <header>
+            <i class="fas fa-crown logo"></i>
+            <h1><i class="fas fa-crown"></i> VIP视频破解脚本安装器</h1>
+            <p class="subtitle">一键安装脚本，免费观看腾讯、爱奇艺、优酷、芒果TV等VIP会员视频，无需登录，无广告干扰</p>
+        </header>
+        
+        <div class="card-grid">
+            <div class="card">
+                <h2><i class="fas fa-star"></i> 脚本功能</h2>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> 支持所有主流视频网站VIP内容</li>
+                    <li><i class="fas fa-check"></i> 自动移除视频广告</li>
+                    <li><i class="fas fa-check"></i> 自动识别VIP视频并解析</li>
+                    <li><i class="fas fa-check"></i> 多线路解析源自动切换</li>
+                    <li><i class="fas fa-check"></i> 高清画质无限制播放</li>
+                    <li><i class="fas fa-check"></i> 轻量级设计不影响网页性能</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2><i class="fas fa-tv"></i> 支持网站</h2>
+                <div class="supported-sites">
+                    <div class="site"><i class="fab fa-chrome"></i> 腾讯视频</div>
+                    <div class="site"><i class="fab fa-internet-explorer"></i> 爱奇艺</div>
+                    <div class="site"><i class="fab fa-firefox"></i> 优酷视频</div>
+                    <div class="site"><i class="fab fa-edge"></i> 芒果TV</div>
+                    <div class="site"><i class="fab fa-safari"></i> 哔哩哔哩</div>
+                    <div class="site"><i class="fab fa-opera"></i> 搜狐视频</div>
+                    <div class="site"><i class="fab fa-chrome"></i> PPTV</div>
+                    <div class="site"><i class="fab fa-edge"></i> 乐视视频</div>
+                    <div class="site"><i class="fab fa-internet-explorer"></i> 1905电影网</div>
+                    <div class="site"><i class="fab fa-firefox"></i> 土豆视频</div>
+                </div>
+                
+                <h2 style="margin-top: 25px;"><i class="fas fa-shield-alt"></i> 安全保障</h2>
+                <ul class="feature-list">
+                    <li><i class="fas fa-lock"></i> 不收集任何用户数据</li>
+                    <li><i class="fas fa-code"></i> 开源透明无后门</li>
+                    <li><i class="fas fa-sync-alt"></i> 自动更新解析接口</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="install-section">
+            <h2>一键安装VIP视频破解脚本</h2>
+            <p>点击下方按钮立即安装，安装后刷新视频网站即可使用</p>
+            
+            <!-- 使用jsdelivr CDN链接解决显示代码问题 -->
+            <a href="https://cdn.jsdelivr.net/gh/dgcgh5156/vip-video-cracker@main/vip_video_crack.user.js" 
+               class="install-btn" 
+               id="installBtn">
+                <i class="fas fa-download"></i> 立即安装脚本
+            </a>
+            
+            <!-- 双CDN安装选项 -->
+            <div class="install-options">
+                <div class="cdn-option">
+                    <h4><i class="fas fa-globe-americas"></i> 国际线路</h4>
+                    <p>全球CDN加速</p>
+                    <a href="https://cdn.jsdelivr.net/gh/dgcgh5156/vip-video-cracker@main/vip_video_crack.user.js" 
+                       class="cdn-btn">
+                        国际CDN安装
+                    </a>
+                </div>
+                
+                <div class="cdn-option">
+                    <h4><i class="fas fa-bolt"></i> 国内加速</h4>
+                    <p>优化国内访问</p>
+                    <a href="https://gcore.jsdelivr.net/gh/dgcgh5156/vip-video-cracker@main/vip_video_crack.user.js" 
+                       class="cdn-btn">
+                        国内CDN安装
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 手动安装说明 -->
+            <div class="manual-install">
+                <h3><i class="fas fa-hands-helping"></i> 手动安装说明</h3>
+                <p>如果点击按钮没有触发安装，请尝试以下方法：</p>
+                <ol>
+                    <li>右键点击上方 <button class="fake-btn">立即安装脚本</button> 按钮</li>
+                    <li>选择"链接另存为..."保存文件到电脑</li>
+                    <li>打开用户脚本管理器（Tampermonkey等）</li>
+                    <li>点击"添加新脚本" > 选择"从文件安装"</li>
+                    <li>选择下载的文件完成安装</li>
+                </ol>
+            </div>
+            
+            <!-- 用户脚本管理器安装引导 -->
+            <div class="browser-extensions">
+                <h3><i class="fas fa-plug"></i> 需要安装用户脚本管理器：</h3>
+                <div class="extensions-list">
+                    <a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo" target="_blank">
+                        <img src="https://img.icons8.com/color/48/000000/chrome.png" alt="Chrome">
+                        Tampermonkey (Chrome)
+                    </a>
+                    <a href="https://addons.mozilla.org/firefox/addon/tampermonkey/" target="_blank">
+                        <img src="https://img.icons8.com/color/48/000000/firefox.png" alt="Firefox">
+                        Tampermonkey (Firefox)
+                    </a>
+                    <a href="https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd" target="_blank">
+                        <img src="https://img.icons8.com/color/48/000000/edge.png" alt="Edge">
+                        Tampermonkey (Edge)
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h2><i class="fas fa-info-circle"></i> 使用说明</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>安装脚本</h3>
+                    <p>点击上方按钮安装用户脚本</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>访问视频网站</h3>
+                    <p>打开腾讯、爱奇艺等视频网站</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>播放VIP视频</h3>
+                    <p>点击任意VIP视频进行播放</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>享受免费观看</h3>
+                    <p>脚本自动解析，畅享VIP内容</p>
+                </div>
+            </div>
+            
+            <div class="note">
+                <h3><i class="fas fa-exclamation-triangle"></i> 注意事项：</h3>
+                <p>1. 使用前请确保已安装用户脚本管理器（如Tampermonkey）</p>
+                <p>2. 如遇解析失败，请尝试切换解析线路</p>
+                <p>3. 本脚本仅供学习交流，请于24小时内删除</p>
+                <p>4. 请支持正版视频服务</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2023 VIP视频解析助手 | 本工具仅提供技术演示</p>
+            <p>已服务用户: <span id="userCount">1,254,893</span> 次 | 今日安装: <span id="todayCount">2,453</span> 次</p>
+        </footer>
+    </div>
+    
+    <script>
+        // 创建背景粒子效果
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                const size = Math.random() * 10 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100 + 100}%`;
+                
+                const animationDuration = Math.random() * 20 + 15;
+                particle.style.animationDuration = `${animationDuration}s`;
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                container.appendChild(particle);
+            }
+        }
+        
+        // 更新用户统计
+        function updateStats() {
+            const userCount = document.getElementById('userCount');
+            const todayCount = document.getElementById('todayCount');
+            
+            // 模拟增长
+            setInterval(() => {
+                let count = parseInt(userCount.textContent.replace(/,/g, ''));
+                count += Math.floor(Math.random() * 10);
+                userCount.textContent = count.toLocaleString();
+            }, 5000);
+            
+            setInterval(() => {
+                let count = parseInt(todayCount.textContent.replace(/,/g, ''));
+                count += Math.floor(Math.random() * 3);
+                todayCount.textContent = count.toLocaleString();
+            }, 10000);
+        }
+        
+        // 安装按钮事件处理
+        function setupInstallButton() {
+            const installBtn = document.getElementById('installBtn');
+            
+            installBtn.addEventListener('click', function(e) {
+                // 防止默认行为
+                e.preventDefault();
+                
+                // 显示安装提示
+                const tip = document.createElement('div');
+                tip.innerHTML = `
+                    <div style="margin-top: 20px; padding: 15px; background: rgba(46, 204, 113, 0.2); border-radius: 8px; animation: fadeIn 0.5s;">
+                        <i class="fas fa-info-circle"></i> 
+                        <strong>安装提示：</strong>
+                        <p>如果用户脚本管理器没有自动打开，请检查：</p>
+                        <ul style="text-align: left; margin: 10px 0 0 20px;">
+                            <li>是否已安装 Tampermonkey 或 Violentmonkey</li>
+                            <li>浏览器是否阻止了弹出窗口（检查地址栏的弹出窗口阻止图标）</li>
+                            <li>尝试右键另存为后手动安装（见下方说明）</li>
+                        </ul>
+                    </div>
+                `;
+                
+                // 添加动画效果
+                const style = document.createElement('style');
+                style.innerHTML = `
+                    @keyframes fadeIn {
+                        from { opacity: 0; transform: translateY(10px); }
+                        to { opacity: 1; transform: translateY(0); }
+                    }
+                `;
+                document.head.appendChild(style);
+                
+                // 插入提示
+                installBtn.parentNode.insertBefore(tip, installBtn.nextSibling);
+                
+                // 延迟打开链接，让提示先显示
+                setTimeout(() => {
+                    window.location.href = installBtn.href;
+                }, 300);
+            });
+        }
+        
+        // 初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            updateStats();
+            setupInstallButton();
+            
+            // 替换CDN链接中的占位符
+            const cdnLinks = document.querySelectorAll('a[href*="dgcgh5156"]');
+            cdnLinks.forEach(link => {
+                const href = link.href;
+                // 在实际部署时替换为真实的用户名和仓库名
+                // link.href = href.replace('your-username', 'your-actual-username')
+                //                  .replace('your-repo', 'your-actual-repo');
+            });
+        });
+    </script>
+</body>
+</html>
